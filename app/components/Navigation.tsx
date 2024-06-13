@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import fire from "../images/fire_background.webp";
+import iceHandPointer from "../images/ice_hand_pointer.png";
+import matchPointer from "../images/match_pointer.png";
 import NavButton from "./navigation/NavButton";
 
 const Navigation = () => {
@@ -11,23 +13,25 @@ const Navigation = () => {
     <>
       <div id="navigation" className="flex items-center gap-x-4 w-9/12 py-2">
         <div id="logo">
-          <img className="w-20" src="nav_logo.png" alt="" />
+          <Link href="/">
+            <img className="w-20" src="nav_logo.png" alt="" />
+          </Link>
         </div>
         <nav id="nav-menu" className="flex justify-between items-center w-full">
-          <div className="flex gap-x-10">
+          <div className="flex gap-x-10 mt-2">
             <div className="nav-item pb-3">
               <Link href="#" className={linkStyles}>
-                Conóceme
+                <span>Conóceme</span>
               </Link>
             </div>
             <div className="nav-item pb-3">
               <Link href="#" className={linkStyles}>
-                Blog
+                <span>Blog</span>
               </Link>
             </div>
             <div className="nav-item pb-3">
               <Link href="#" className={linkStyles}>
-                Cursos
+                <span>Cursos</span>
               </Link>
             </div>
           </div>
@@ -38,12 +42,20 @@ const Navigation = () => {
       </div>
 
       <style jsx>{`
+        img {
+          cursor: url(${iceHandPointer.src}), auto;
+        }
+        span {
+          cursor: url(${matchPointer.src}), auto;
+          padding-top: 1rem;
+        }
         .nav-item:hover {
           background-image: url(${fire.src});
           background-size: 100% 40%;
           background-repeat: no-repeat;
           background-position: 0% 100%;
           animation: 0.3s easy-in fireFading;
+          cursor: url(${matchPointer.src}), auto;
         }
 
         @keyframes fireFading {

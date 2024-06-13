@@ -1,3 +1,5 @@
+'use client'
+import icePointer from "./images/ice_pointer.png";
 import Navigation from "./components/Navigation";
 import Home from "./components/index_page/Home";
 
@@ -6,11 +8,17 @@ export default function index() {
   return (
     <>
       <header className="flex justify-center shadow shadow-gray-500">
-        <Navigation/ >
+        <Navigation />
       </header>
       <main>
         <Home />
       </main>
+
+      <style jsx>{`
+        header, main {
+          cursor: url(${icePointer.src}), auto;
+        }
+      `}</style>
     </>
   );
 }
